@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,5 +23,5 @@ public class OrderEntity {
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;
     @OneToMany(mappedBy = "order")
-    private List<ItemEntity> items;
+    private List<ItemEntity> items = new ArrayList<>();
 }

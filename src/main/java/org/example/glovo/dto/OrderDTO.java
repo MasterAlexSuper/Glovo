@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,5 +18,5 @@ public class OrderDTO {
     private String username;
     private String description;
     private LocalDateTime creationDate;
-    private List<Integer> itemsIds;
+    private List<Integer> itemsIds = new ArrayList<>();
 }

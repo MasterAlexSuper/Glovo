@@ -42,16 +42,14 @@ public class OrderService {
     public OrderDTO addItem(ItemDTO itemDTO, int orderId) {
         OrderEntity orderEntity = orderRepository.findById(orderId).orElseThrow();
         ItemEntity itemEntity = ItemMapper.toEntity(itemDTO);
-        itemEntity.setOrder(orderEntity);
+
         itemEntity.setProduct(ProductEntity.builder().id(itemDTO.getProductId()).build());
         itemRepository.save(itemEntity);
-        orderEntity.getItems().add(itemEntity);
         return OrderMapper.toDTO(orderRepository.save(orderEntity));
     }
 
     public void removeItem(int itemId) {
         itemRepository.deleteById(itemId);
-
     }
 
     public void delete(int orderId) {

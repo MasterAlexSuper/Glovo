@@ -7,6 +7,7 @@ public class ItemMapper {
 
     public static ItemEntity toEntity(ItemDTO dto) {
         return ItemEntity.builder()
+                .id(dto.getId())
                 .quantity(dto.getQuantity())
                 .build();
     }
